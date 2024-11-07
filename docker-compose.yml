@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3'
+
+services:
+  web-chains:
+    build: .
+    ports:
+      - "8011:8011"
+    volumes:
+      - ./chains-config:/app/chains-config
+      - ./web-chains-1.0.0-SNAPSHOT.jar:/app/web-chains-1.0.0-SNAPSHOT.jar
