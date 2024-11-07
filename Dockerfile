@@ -9,17 +9,25 @@ RUN unset http_proxy https_proxy ftp_proxy HTTP_PROXY HTTPS_PROXY FTP_PROXY && \
     echo 'Acquire::http::Proxy "false";' > /etc/apt/apt.conf.d/00proxy && \
     echo 'Acquire::https::Proxy "false";' >> /etc/apt/apt.conf.d/00proxy
 
-# 更新系统并安装必要的依赖，包括 libc6、wget 和 openjdk-8-jdk
+# 更新系统并安装必要的依赖，包括 libc6、wget
 RUN apt-get update && \
-    apt-get install -y libc6 wget openjdk-8-jdk && \
+    apt-get install -y libc6 wget && \
     rm -rf /var/lib/apt/lists/*
 
-# 设置 JAVA_HOME 环境变量
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH=$JAVA_HOME/bin:$PATH
+# 下载、解压 Java 安装目录
+RUN wget https://download.java.net/openjdk/jdk8u44/ri/openjdk-8u44-linux-x64.tar.gz && \
+    tar -zxvf openjdk-8u44-linux-x64.tar.gz
 
 # 创建应用目录
-RUN mkdir /app
+RUN mkdir /app && \
+    mkdir /opt/java
+
+RUN mv java-se-8u44-ri /opt/java/
+
+# 设置 JAVA_HOME 环境变量
+ENV JAVA_HOME=/opt/java/java-se-8u44-ri
+ENV PATH=$JAVA_HOME/bin:$PATH
+
 
 # 设置工作目录
 WORKDIR /app
