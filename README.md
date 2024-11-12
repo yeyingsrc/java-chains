@@ -51,10 +51,6 @@ Exploit 模块：
 - Fake Mysql Server (经典 `JDBC` 攻击必备，基于生成模块多种进阶组合)
 - JRMPListener / TCP Server（Derby RCE）/ HTTP Server
 
-使用 `Fake Mysql Server` 进行测试
-
-![](img/002.png)
-
 正在开发中：
 
 - 一个完善的插件系统
