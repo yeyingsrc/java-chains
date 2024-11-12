@@ -3,7 +3,7 @@ version: '3'
 
 services:
   web-chains:
-    build: .
+    build: ..
     ports:
       - "8011:8011"
     volumes:
