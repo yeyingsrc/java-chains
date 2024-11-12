@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/github/downloads/java-chains/web-chains/total)
 ![](https://img.shields.io/github/v/release/java-chains/web-chains)
+![GitHub Repo stars](https://img.shields.io/github/stars/Java-Chains/web-chains?color=success)
+![GitHub forks](https://img.shields.io/github/forks/Java-Chains/web-chains)
 
 `web-chains` 项目，又名 `java-chains` 项目，由 `Ar3h` 师傅主导开发，漏洞百出和代码审计星球支持
 
