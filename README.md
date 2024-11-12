@@ -127,6 +127,8 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 - https://github.com/kezibei/Urldns
 - https://github.com/rebeyond/JNDInjector
 - https://github.dev/LxxxSec/CTF-Java-Gadget
+- https://github.com/pen4uin/java-memshell-generator
+- https://github.com/pen4uin/java-echo-generator
 - https://xz.aliyun.com/t/5381
 - http://rui0.cn/archives/1408
 
