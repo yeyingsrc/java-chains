@@ -11,8 +11,6 @@
 
 我们站在巨人肩膀上，致力于打造最强的 `Java` 安全研究领域的瑞士军刀
 
-交流群请加V备注项目名：`Y2VzaGkyMzQ1Njc=`
-
 ![](img/001.png)
 
 ## 介绍
@@ -81,7 +79,7 @@ docker run -d \
   -p 3308:3308 \
   -p 11527:11527 \
   -p 50000:50000 \
-  javachains/webchains:1.1.0
+  javachains/webchains:1.2.0
 ```
 
 生成功能仅使用 `8011` 端口即可，其他端口为 `exploit` 模块使用
@@ -89,13 +87,12 @@ docker run -d \
 请使用以下命令获得随机的强用户名密码
 
 ```shell
-docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -E 'username|password'
+docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -E 'password'
 ```
 
 输出示例
 
 ```text
-11-12 06:59:53.301 INFO  [main] c.a.c.w.c.SecurityConfig       |  | generated random username: fBTWDfwlapmq
 11-12 06:59:53.301 INFO  [main] c.a.c.w.c.SecurityConfig       |  | generated random password: XSsWerJFGcCjB8FU
 ```
 
@@ -104,6 +101,16 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 你也可以直接使用 `jar` 版本，使用 `java -jar web-chains.jar` 即可启动（推荐使用 `docker` 方式）
 
 **特别注意：我们只对 8011 端口进行了保护，需要登陆后访问，其他端口可能存在被反制的风险，请自行注意** 
+
+## 更新内容
+
+`v1.2.0` 版本大幅改进了配置信息的描述
+
+![](img/002.png)
+
+`v1.2.0` 版本提供了内置的高质量常用组合链
+
+![](img/003.png)
 
 ## 参考和致谢
 
@@ -133,6 +140,16 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 - https://github.com/pen4uin/java-echo-generator
 - https://xz.aliyun.com/t/5381
 - http://rui0.cn/archives/1408
+
+## 交流
+
+交流群请扫码，如果失效可加V备注项目名：`Y2VzaGkyMzQ1Njc=`
+
+![](img/02.jpg)
+
+如果你觉得 `Java Chains / Web Chains` 项目对你有帮助，可以赞赏支持我们
+
+![](img/01.jpg)
 
 ## Star History
 
