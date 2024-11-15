@@ -106,11 +106,11 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 `v1.2.0` 版本大幅改进了配置信息的描述
 
-![](img/002.png)
+<img src="img/002.png" width="600px">
 
 `v1.2.0` 版本提供了内置的高质量常用组合链
 
-![](img/003.png)
+<img src="img/003.png" width="600px">
 
 ## 参考和致谢
 
@@ -145,11 +145,11 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 交流群请扫码，如果失效可加V备注项目名：`Y2VzaGkyMzQ1Njc=`
 
-![](img/02.jpg)
+<img src="img/02.jpg" width="300px">
 
 如果你觉得 `Java Chains / Web Chains` 项目对你有帮助，可以赞赏支持我们
 
-![](img/01.jpg)
+<img src="img/01.jpg" width="300px">
 
 ## Star History
 
