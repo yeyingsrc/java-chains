@@ -7,7 +7,9 @@
 
 `web-chains` 项目，又名 `java-chains` 项目，由 `Ar3h` 师傅主导开发，漏洞百出和代码审计星球支持
 
-<center><img src="/img/000.png" alt=""></center>
+<div style="text-align: center;">
+  <img src="/img/000.png" alt="center">
+</div>
 
 我们站在巨人肩膀上，致力于打造最强的 `Java` 安全研究领域的瑞士军刀
 
@@ -100,7 +102,7 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 你也可以直接使用 `jar` 版本，使用 `java -jar web-chains.jar` 即可启动（推荐使用 `docker` 方式）
 
-**特别注意：我们只对 8011 端口进行了保护，需要登陆后访问，其他端口可能存在被反制的风险，请自行注意** 
+**特别注意：我们只对 8011 端口进行了保护，需要登陆后访问，其他端口可能存在被反制的风险，请自行注意**
 
 ## 更新内容
 
@@ -145,11 +147,15 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 交流群请扫码，如果失效可加V备注项目名：`Y2VzaGkyMzQ1Njc=`
 
+<div style="text-align: center;">
 <img src="img/02.jpg" width="300px">
+</div>
 
-如果你觉得 `Java Chains / Web Chains` 项目对你有帮助，可以赞赏支持我们
+如果你觉得 `Java Chains / Web Chains` 项目对你有帮助，可以考虑支持一下我们
 
+<div style="text-align: center;">
 <img src="img/01.jpg" width="300px">
+</div>
 
 ## Star History
 
