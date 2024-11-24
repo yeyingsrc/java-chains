@@ -4,10 +4,13 @@
 <img alt="release" src="https://img.shields.io/github/v/release/java-chains/web-chains"/>
 <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Java-Chains/web-chains?color=success"/>
 </div>
+
+
 `web-chains` 项目，又名 `java-chains` 项目，由 `Ar3h` 师傅主导开发，漏洞百出和代码审计星球支持
 
+
 <div align="center">
-<img src="img/logo.png" width="150" alt="center">
+    <img src="img/logo.png" width="100" alt="center">
 </div>
 
 我们站在巨人肩膀上，致力于打造最强的 `Java` 安全研究领域的瑞士军刀
@@ -101,6 +104,10 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 **特别注意：我们只对 8011 端口进行了保护，需要登陆后访问，其他端口可能存在被反制的风险，请自行注意**
 
+## 详细使用
+
+文档：https://www.yuque.com/shenjingwa-leuvd/wpqdhf/eekyvau9fcblzzt0
+
 ## 更新内容
 
 `v1.2.0` 版本大幅改进了配置信息的描述
@@ -118,8 +125,6 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 本项目的开发者、提供者和维护者不对使用者使用工具的行为和后果负责，工具的使用者应自行承担风险。
 
 [更新日志 | CHANGELOG](CHANGELOG.md)
-
-一些参考文档：https://java-chains.yuque.com/org-wiki-java-chains-woznyq/evwydq/tu2n6ycvlasvcw19
 
 参考致谢：
 
