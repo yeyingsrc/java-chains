@@ -81,7 +81,7 @@ docker run -d \
   -p 3308:3308 \
   -p 11527:11527 \
   -p 50000:50000 \
-  javachains/webchains:1.2.0
+  javachains/webchains:1.2.1
 ```
 
 生成功能仅使用 `8011` 端口即可，其他端口为 `exploit` 模块使用
@@ -109,6 +109,8 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 文档：https://www.yuque.com/shenjingwa-leuvd/wpqdhf/eekyvau9fcblzzt0
 
 ## 更新内容
+
+`v1.2.1` 对部分链的描述信息做了优化
 
 `v1.2.0` 版本大幅改进了配置信息的描述
 

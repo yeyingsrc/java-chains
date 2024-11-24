@@ -1,3 +1,22 @@
+## 1.2.1
+
+更新内容：
+
+- [功能] 新增 `Hessian LazyValueWithSleep` 链 @unam4
+- [功能] 新增 `TomcatEcho` 回显 (可在 `Jeg` 无法使用时使用) @匿名
+- [优化] 优化预设链的描述 @Ar3h
+- [优化] 优化 `JNDI` 相关以及部分 `Gadget` 的描述 @Ar3h
+
+感谢以下用户的贡献:
+
+- Ar3h (https://github.com/Ar3h)
+- unam4 (https://github.com/unam4)
+- 某匿名安全研究师傅
+
+使用 `java -jar java-chains.jar` 即可启动
+
+推荐使用 `docker` 一键启动
+
 ## 1.2.0
 
 更新内容：
