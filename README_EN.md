@@ -12,9 +12,9 @@
 The `Web-Chains` project, also known as the `Java-Chains` project, stands on the shoulders of giants and is committed to
 building the Swiss Army knife of the strongest `Java` security research
 
-<div style="text-align: center;">
-<img src="./img/main_EN.png" width="700px">
-</div>
+<p align="center">
+  <img src="./img/main_EN.png" />
+</p>
 
 ## 介绍
 

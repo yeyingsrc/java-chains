@@ -5,15 +5,15 @@
 <img alt="release" src="https://img.shields.io/github/v/release/java-chains/web-chains"/>
 <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Java-Chains/web-chains?color=success"/>
 <div align="center">
-    <img src="img/logo.png" width="80" alt="center">
+    <img src="img/logo.png" width="60" alt="center">
 </div>
 </div>
 
 `Web-Chains` 项目，又名 `Java-Chains` 项目，我们站在巨人肩膀上，致力于打造最强的 `Java` 安全研究领域的瑞士军刀
 
-<div style="text-align: center;">
-<img src="./img/main.png" width="700px">
-</div>
+<p align="center">
+  <img src="./img/main.png" />
+</p>
 
 ## 介绍
 
@@ -28,7 +28,7 @@
     - `XStream` 数据生成（基于原生数据多种进阶组合）
     - `BCEL` 字节码生成（直接执行命令，内存马生成，回显生成，探测字节码，读写文件）
     - `Class` 字节码生成（直接执行命令，内存马生成，回显生成，探测字节码，读写文件）
-    - 多种数据库 JDBC  Payload 生成（`Derby` | `H2` | `PostgreSql` | `Sqlite`）
+    - 多种数据库 JDBC Payload 生成（`Derby` | `H2` | `PostgreSql` | `Sqlite`）
     - `SnakeYAML/SpringBeanXML/Velocity/OGNL/MVEL/SPEL/JS/GROOVY`
     - Java反序列化、Hessian反序列化支持以下混淆方式：
         - 随机集合混淆
@@ -145,17 +145,17 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 交流群请扫码
 
-<div style="text-align: center;">
-<img src="img/group.png" width="300px">
-</div>
+<p align="center">
+  <img src="img/group.png" width="300px">
+</p>
 
 如果二维码失效可加V备注项目名：`Y2VzaGkyMzQ1Njc=`
 
 你觉得该项目对你有帮助的话，可以考虑支持一下我们
 
-<div style="text-align: center;">
+<p align="center">
 <img src="img/zanShang.jpg" width="300px">
-</div>
+</p>
 
 ## Star History
 
