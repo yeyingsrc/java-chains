@@ -1,3 +1,25 @@
+## 1.2.2
+
+更新内容：
+
+- [功能] 支持国际化，页面支持英文切换，登陆页面后右上角可进行切换语言 @Ar3h
+- [功能] 新增 `OneForAllEcho` Gadget，属于字节码类型，可实现Tomcat、WebLogic、Jetty、Spring环境下的一键回显 @4ra1n
+- [功能] 新增 `XMLDecoder` Payload 生成 @4ra1n
+- [新链] 新增 HutoolJndiDSFactory、hutoolSimpleDSFactory、hutoolPooledDSFactory 三条hutools相关Getter链 @unam4
+- [优化] Java反序列化支持完全 UTF8 Overlong（参考 PPPYSO 项目） @Ar3h
+- [优化] 优化前端Gadget选项提示，前端使用青色提醒Gadget存在一些不适用的情况，需要阅读详细说明后自行判断 @Ar3h
+- [优化] 拆分出 DNSLogWithInfo 链，专门用于通过DNSLog回显gadget链信息，方便在梭哈链中进行判断可用链 @Ar3h
+- [优化] 前端添加缓存，减少请求量，提高速度 @Ar3h
+- [BUG] 修复 DNSLog、DNSLogAndHttp 无法正常使用的严重BUG
+
+感谢以下用户的贡献:
+
+- Ar3h (https://github.com/Ar3h)
+- 4ra1n (https://github.com/4ra1n)
+- unam4 (https://github.com/unam4)
+
+推荐使用 Docker 一键启动
+
 ## 1.2.1
 
 更新内容：
