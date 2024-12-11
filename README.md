@@ -37,7 +37,7 @@
         - `TC_RESET` 填充，仅适用于Java反序列化
         - `UTF-8 Overlong Encoding` 混淆
     - 一些高级选项：
-        - 自定义类名/定义字节码版本
+        - 自定义类名/定义字节码版本，支持使用 Class-Obf 进行字节码混淆
         - 选择 `Commons Beanutils` 链的多种 `comparator` 类型
         - 支持生成 `TemplatesImpl` 格式
         - 支持生成 `SnakeYaml Jar` 格式
@@ -85,7 +85,7 @@ docker run -d \
   -p 3308:3308 \
   -p 11527:11527 \
   -p 50000:50000 \
-  javachains/webchains:1.2.2
+  javachains/webchains:1.2.3
 ```
 
 生成功能仅使用 `8011` 端口即可，其他端口为 `exploit` 模块使用
@@ -106,7 +106,7 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 ### 方式二：Jar包启动
 
-使用 `java -jar web-chains-v1.2.2.jar` 即可启动
+使用 `java -jar web-chains-v1.2.3.jar` 即可启动
 
 ## 详细使用
 
@@ -128,6 +128,7 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 - https://github.com/qi4L/JYso
 - https://github.com/X1r0z/JNDIMap
 - https://github.com/Whoopsunix/PPPYSO
+- https://github.com/jar-analyzer/class-obf
 - https://github.com/4ra1n/mysql-fake-server
 - https://github.com/mbechler/marshalsec
 - https://github.com/frohoff/ysoserial
@@ -147,14 +148,6 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 <p align="center">
   <img src="img/group.png" width="300px">
-</p>
-
-如果二维码失效可加V备注项目名：`Y2VzaGkyMzQ1Njc=`
-
-你觉得该项目对你有帮助的话，可以考虑支持一下我们
-
-<p align="center">
-<img src="img/zanShang.jpg" width="300px">
 </p>
 
 ## Star History

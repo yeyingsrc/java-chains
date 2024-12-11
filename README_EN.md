@@ -5,7 +5,7 @@
 <img alt="release" src="https://img.shields.io/github/v/release/java-chains/web-chains"/>
 <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Java-Chains/web-chains?color=success"/>
 <div align="center">
-    <img src="img/logo.png" width="80" alt="center">
+    <img src="img/logo.png" width="60" alt="center">
 </div>
 </div>
 
@@ -40,7 +40,7 @@ building the Swiss Army knife of the strongest `Java` security research
         - `TC_RESET` padding, which is only available for Java deserialization
         - `UTF-8 Overlong Encoding` obfuscation
    - Some advanced options:
-      - Customize the class name/define the bytecode version
+      - Customize the class name/define the bytecode version. Support bytecode obfuscation using Class-Obf
       - Select multiple `comparator` types for the `Commons Beanutils` chain
       - Support for generating `TemplatesImpl` format
       - Support for generating `SnakeYaml Jar` format
@@ -88,7 +88,7 @@ docker run -d \
   -p 3308:3308 \
   -p 11527:11527 \
   -p 50000:50000 \
-  javachains/webchains:1.2.2
+  javachains/webchains:1.2.3
 ```
 
 The build function only uses the `8011` port, and the other ports are used by the `exploit` module
@@ -109,7 +109,7 @@ Just visit `http://your-ip:8011` (log in with your username and password here)
 
 ### Method 2: Start the JAR package
 
-Use `java -jar web-chains-v1.2.2.jar` to get started
+Use `java -jar web-chains-v1.2.3.jar` to get started
 
 ## Detailed use
 
@@ -131,6 +131,7 @@ Acknowledgments:
 - https://github.com/qi4L/JYso
 - https://github.com/X1r0z/JNDIMap
 - https://github.com/Whoopsunix/PPPYSO
+- https://github.com/jar-analyzer/class-obf
 - https://github.com/4ra1n/mysql-fake-server
 - https://github.com/mbechler/marshalsec
 - https://github.com/frohoff/ysoserial

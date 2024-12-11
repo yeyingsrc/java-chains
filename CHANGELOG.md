@@ -1,3 +1,11 @@
+## 1.2.3
+
+- [功能] 支持字节码混淆，集成 Class-Obf(https://github.com/jar-analyzer/class-obf)项目 @4ra1n
+- [功能] 新增 ExpressionPayload、JDBCPayload，方便生成表达式相关Payload以及JDBC URL相关Payload @Ar3h
+- [优化] FakeMySQL日志更详细的输出 @Ar3h
+- [BUG] 修复前端展开BUG @Ar3h
+
+
 ## 1.2.2
 
 更新内容：
