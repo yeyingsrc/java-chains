@@ -88,12 +88,15 @@ docker run -d \
   -p 3308:3308 \
   -p 11527:11527 \
   -p 50000:50000 \
-  javachains/webchains:1.2.3
+  -e CHAINS_AUTH=true \
+  -e CHAINS_PASS= \
+  javachains/webchains:1.2.4
 ```
 
-The build function only uses the `8011` port, and the other ports are used by the `exploit` module
+Authentication and password can be configured via environment variables:
 
-Please use the following command to get a randomly generated strong password
+**CHAINS_AUTH**: Set to true to enable authentication, false to disable it. Authentication is enabled by default.
+**CHAINS_PASS**: Specifies the web password. If this variable is empty, a password will be generated randomly. By default, a password is generated randomly.
 
 ```shell
 docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -E 'password'
@@ -109,7 +112,21 @@ Just visit `http://your-ip:8011` (log in with your username and password here)
 
 ### Method 2: Start the JAR package
 
-Use `java -jar web-chains-v1.2.3.jar` to get started
+You can start it by using java -jar web-chains.jar. After each startup, a randomly generated password will be printed.
+
+It listens on 0.0.0.0 by default. You can access it by visiting http://your-ip:8011 (use the username and password printed earlier to log in).
+
+You can set the web login password via environment variables, for example:
+
+Linux:
+```bash
+export CHAINS_PASS=[your_password] && java -jar web-chains.jar
+```
+
+Windows:
+```cmd
+set CHAINS_PASS=[your_password] && java -jar web-chains.jar
+```
 
 ## Detailed use
 

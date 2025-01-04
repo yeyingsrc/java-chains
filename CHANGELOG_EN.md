@@ -1,3 +1,13 @@
+## 1.2.4
+
+- [Feature] Synchronized update to Class-Obf v1.3.1 (https://github.com/jar-analyzer/class-obf) @4ra1n
+- [Feature] Synchronously update java-memshell-generator to version v1.0.9
+- [Feature] Added XmlDeSerPayload @unam4
+- [Feature] Added OpengaussJdbc chain @guchangan1
+- [Feature] Customize web login password, customize whether to disable authentication.
+- [Optimization] java-memshell-generator (Jmg) optimizes error message prompts; supports automatically generating random string parameters to reduce signatures.
+
+
 ## 1.2.3
 
 - [Feature] Support for bytecode obfuscation, integrated with the Class-Obf project by @4ra1n

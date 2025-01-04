@@ -1,3 +1,12 @@
+## 1.2.4
+
+- [功能] 同步更新 Class-Obf v1.3.1 版本 (https://github.com/jar-analyzer/class-obf) @4ra1n
+- [功能] 同步更新 java-memshell-generator(Jmg) v1.0.9 版本
+- [功能] 新增 XmlDeSerPayload @unam4
+- [功能] 新增 OpengaussJdbc 链 @guchangan1
+- [功能] 自定义web登录密码，自定义是否关闭鉴权
+- [优化] java-memshell-generator(Jmg) 优化报错提示；支持自动生成随机字符串参数，用于减少特征
+
 ## 1.2.3
 
 - [功能] 支持字节码混淆，集成 Class-Obf(https://github.com/jar-analyzer/class-obf)项目 @4ra1n
