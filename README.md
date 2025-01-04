@@ -91,7 +91,9 @@ docker run -d \
 ```
 
 可通过环境变量配置鉴权或密码；
+
 **CHAINS_AUTH**: true为开启鉴权，false为关闭鉴权，默认开启鉴权
+
 **CHAINS_PASS**: 指定web密码，若该变量为空则随机生成密码，默认随机生成密码
 
 备注：生成功能仅使用 `8011` 端口即可，其他端口为 `exploit` 模块使用
@@ -108,14 +110,14 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 11-12 06:59:53.301 INFO  [main] c.a.c.w.c.SecurityConfig       |  | password: XSsWerJFGcCjB8FU
 ```
 
-访问 `http://your-ip:8011` 即可（使用这里的用户名密码登录）
+登录页面：`http://your-ip:8011`
 
 
 ### 方式二：Jar包启动
 
 使用 `java -jar web-chains.jar` 即可启动，每次启动后会打印出随机生成的密码
 
-默认监听 0.0.0.0 ，访问 `http://your-ip:8011` 即可（使用这里的用户名密码登录）
+默认监听 0.0.0.0 ，登录页面：`http://your-ip:8011` （使用这里的用户名密码登录）
 
 可通过环境变量设置web登录密码，例如：
 

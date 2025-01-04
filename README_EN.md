@@ -96,6 +96,7 @@ docker run -d \
 Authentication and password can be configured via environment variables:
 
 **CHAINS_AUTH**: Set to true to enable authentication, false to disable it. Authentication is enabled by default.
+
 **CHAINS_PASS**: Specifies the web password. If this variable is empty, a password will be generated randomly. By default, a password is generated randomly.
 
 ```shell
