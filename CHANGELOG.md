@@ -1,3 +1,20 @@
+## 1.3.0
+
+- [功能] 新增 [SerializationDumper](https://github.com/NickstaDB/SerializationDumper) 解析Java序列化数据，并自定义修改任意类
+  SUID 等功能
+- [功能] 开放 Chains 插件编写，参考：https://github.com/Java-Chains/chains-plugin-demo ，前端支持reload重加载插件
+- [功能] 新增 Hessian2ToStringPayload，通过 except 可触发toString链
+- [功能] 前端提供展示所有 Payload、Gadget 基础信息
+- [功能] 新增 CommonsBeanutils5 Gadget，适用于 cb 1.10 版本
+- [功能] 新增 FakeMySQLReadPayload 读文件利用，同时兼容 fileread_/etc/passwd 格式 ，参考 https://github.com/4ra1n/mysql-fake-server
+- [功能] Generate 生成模块提供 URL Encoding 编码选项
+- [功能] gadget 注解中新增 preTags 字段，可用于指定前面的链
+- [功能] 同步更新 [Class-Obf](https://github.com/jar-analyzer/class-obf) v1.4.0 版本
+- [优化] JNDI、JRMP 等模块若端口未开放则会进行提醒
+- [优化] 前端图标展示
+- [优化] 整理后端代码
+- [Bugfix] 修复Groovy生成Jar的问题。现在可以通过 OtherPayload -> GroovyJarConvert 中生成 Fastjson Groovy Jar
+
 ## 1.2.4
 
 - [功能] 同步更新 Class-Obf v1.3.1 版本 (https://github.com/jar-analyzer/class-obf) @4ra1n

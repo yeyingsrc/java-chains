@@ -5,7 +5,7 @@
 <img alt="release" src="https://img.shields.io/github/v/release/java-chains/web-chains"/>
 <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Java-Chains/web-chains?color=success"/>
 <div align="center">
-    <img src="img/logo.png" width="60" alt="center">
+    <img src="../img/logo.png" width="60" alt="center">
 </div>
 </div>
 
@@ -13,7 +13,7 @@ The `Web-Chains` project, also known as the `Java-Chains` project, stands on the
 building the Swiss Army knife of the strongest `Java` security research
 
 <p align="center">
-  <img src="./img/main_EN.png" />
+  <img src="../img/main_EN.png" />
 </p>
 
 ## 介绍
@@ -90,7 +90,7 @@ docker run -d \
   -p 50000:50000 \
   -e CHAINS_AUTH=true \
   -e CHAINS_PASS= \
-  javachains/webchains:1.2.4
+  javachains/webchains:1.3.0
 ```
 
 Authentication and password can be configured via environment variables:
@@ -160,6 +160,7 @@ Acknowledgments:
 - https://github.dev/LxxxSec/CTF-Java-Gadget
 - https://github.com/pen4uin/java-memshell-generator
 - https://github.com/pen4uin/java-echo-generator
+- https://github.com/NickstaDB/SerializationDumper
 - https://xz.aliyun.com/t/5381
 - http://rui0.cn/archives/1408
 

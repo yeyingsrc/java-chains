@@ -1,3 +1,20 @@
+## 1.3.0
+
+- [Feature] Added [SerializationDumper](https://github.com/NickstaDB/SerializationDumper) for parsing Java serialized data, enabling custom modification of class SUIDs, etc.
+- [Feature] Enabled Chains plugin development.  See: https://github.com/Java-Chains/chains-plugin-demo.  The frontend supports plugin reloading.
+- [Feature] Added Hessian2ToStringPayload; a toString chain can be triggered via `except`.
+- [Feature] The frontend now displays basic information for all Payloads and Gadgets.
+- [Feature] Added CommonsBeanutils5 Gadget, suitable for cb version 1.10.
+- [Feature] Added FakeMySQLReadPayload for file reading exploitation, compatible with `fileread_/etc/passwd` format. See https://github.com/4ra1n/mysql-fake-server.
+- [Feature] The Generate module now offers a URL Encoding option.
+- [Feature] Added the `preTags` field in gadget annotations, which can be used to specify preceding chains.
+- [Feature] Synchronously updated [Class-Obf](https://github.com/jar-analyzer/class-obf) to version v1.4.0.
+- [Improvement] JNDI, JRMP, etc. modules will now provide a warning if the port is not open.
+- [Improvement] Improved frontend icon display.
+- [Improvement] Refactored backend code.
+- [Bugfix] Fixed the Groovy Jar generation issue. Fastjson Groovy Jars can now be generated through OtherPayload -> GroovyJarConvert.
+
+
 ## 1.2.4
 
 - [Feature] Synchronized update to Class-Obf v1.3.1 (https://github.com/jar-analyzer/class-obf) @4ra1n
