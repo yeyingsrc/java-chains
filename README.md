@@ -102,9 +102,11 @@ JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便�
 
 ### Mysql JDBC 反序列化利用模块 (Fake MySQL)
 
-`FakeMysqlPayload`: 经典 MySQL JDBC 反序列化利用姿势
+`FakeMySQLPayload`: MySQL JDBC 反序列化利用姿势
 
-`FakeMysqlShowHandPayload`: FakeMySQL梭哈链，一键测试常规反序列化链，提高测试效率
+`FakeMySQLReadPayload`: MySQL JDBC 客户端文件读取利用姿势
+
+`FakeMySQLSHPayload`: FakeMySQL 反序列化梭哈链，一键测试常规反序列化链，提高测试效率
 
 ### JRMP 反序列化利用模块 (JRMPListener)
 

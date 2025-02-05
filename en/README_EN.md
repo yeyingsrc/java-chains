@@ -57,8 +57,8 @@ building the Swiss Army knife of the strongest `Java` security research
     - `JndiRefBypassPayload`: LDAP later version JDK bypasses
     - `JndiShowHandPayload`: JNDI show hand chain, one-click test routine utilization chain, improve testing efficiency
 3. `Fake MySQL`
-    - `FakeMysqlPayload`: Classic MySQL JDBC deserialization leverages poses
-    - `FakeMysqlShowHandPayload`: FakeMySQL show hand chain, one-click test of conventional deserialization chain, improve testing efficiency
+    - `FakeMySQLPayload`: Classic MySQL JDBC deserialization leverages poses
+    - `FakeMySQLShowHandPayload`: FakeMySQL show hand chain, one-click test of conventional deserialization chain, improve testing efficiency
 4. `JRMPListener`
     - It can be used with the JRMPClient deserialization chain
 5. `TCP Server`
