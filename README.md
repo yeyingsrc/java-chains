@@ -1,144 +1,159 @@
-<h4 align="right">中文 | <strong><a href="./en/README_EN.md">English</a></strong> </h4>
+<h4 align="right"><strong><a href="./README.zh-cn.md">中文</a></strong> | English </h4>
 <h1 align="center">Web Chains</h1>
 <div align="center">
 <img alt="downloads" src="https://img.shields.io/github/downloads/java-chains/web-chains/total"/>
 <img alt="release" src="https://img.shields.io/github/v/release/java-chains/web-chains"/>
 <img alt="GitHub Stars" src="https://img.shields.io/github/stars/Java-Chains/web-chains?color=success"/>
 <div align="center">
-    <img src="img/logo.png" width="60" alt="center">
+    <img src="./img/logo.png" width="60" alt="center">
 </div>
 </div>
 
-`Web-Chains` 是一个 Java Payload 生成与漏洞利用 Web 平台，便于广大安全研究员快速生成 Java Payload，以及对
-JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便快速测试，能够在一定程度上提高测试效率。
-
-> 我们站在巨人肩膀上，致力于打造最强的 Java 安全研究领域的瑞士军刀
+`Web-Chains` is a Java Payload generation and vulnerability exploitation web platform, designed to facilitate security
+researchers in quickly generating Java Payloads and conveniently and rapidly testing vulnerabilities such as JNDI
+injection, MySQL JDBC deserialization, and JRMP deserialization. It aims to improve testing efficiency to a certain
+extent.
 
 <p align="center">
   <img src="./img/main.png" />
 </p>
 
-## 模块介绍
+## Module Introduction
 
-`Web-Chains` 含有以下六大模块
+`Web-Chains` comprises the following six major modules:
 
-### 生成模块(Generate)
+### Generation Module (Generate)
 
-`JavaNativePayload`: Java 反序列化原生 Payload 生成
+`JavaNativePayload`: Java Native Deserialization Payload Generation
 
-`HessianPayload`: Hessian1 反序列化 Payload 生成，并支持 HessianServlet 格式反序列化数据
+`HessianPayload`: Hessian1 Deserialization Payload Generation, supporting HessianServlet format deserialized data
 
-`Hessian2Payload`: Hessian2 反序列化 Payload 生成
+`Hessian2Payload`: Hessian2 Deserialization Payload Generation
 
-`ShiroPayload`: Shiro Payload 生成，在某些特殊环境下方便手动进行生成与测试
- - 支持自定义 AES KEY
- - 支持 AES GCM 模式
- - 支持插入 Base64 混淆字符
+`ShiroPayload`: Shiro Payload Generation, facilitating manual generation and testing in specific environments
+
+- Supports custom AES KEY
+- Supports AES GCM mode
+- Supports inserting Base64 obfuscation characters
 
 `OtherPayload`
-- `CharsetJarConvet`: 生成 charsets.jar 包，适用于 SpringBoot 下文件上传 RCE 场景
-- `GroovyJarConvert`: 生成 fastjson-groovy.jar 包，适用于 Fastjson 高版本下通过 Groovy 链加载特定格式 Jar 包实现 RCE）
-- `SnakeyamlJarConvert`: 生成 snakeyaml.jar 包，适用于 SnakeYaml 通过 SPI 加载特定格式 Jar 包实现 RCE
 
-- `JDBCPayload`: JDBC Payload 生成
-  - H2 JDBC
-  - PostgresSQL
-  - ...
+- `CharsetJarConvet`: Generates charsets.jar package, suitable for file upload RCE scenarios under SpringBoot
+- `GroovyJarConvert`: Generates fastjson-groovy.jar package, suitable for achieving RCE in high versions of Fastjson by
+  loading specific format Jar packages via Groovy chains.
+- `SnakeyamlJarConvert`: Generates snakeyaml.jar package, suitable for achieving RCE in SnakeYaml by loading specific
+  format Jar packages via SPI.
 
-`ExpressionPayload`: 表达式 Payload 生成，本质上是将表达式加载字节码模板中的字节码部分进行替换，推荐手动实现
-- `BcelConvert`: BCEL 格式字节码生成
-- `JsConvert`: Oracle Nashorn JS 表达式加载字节码
-- `VelocityConvert`: Velocity 通过 bcel 来加载字节码
+- `JDBCPayload`: JDBC Payload Generation
+    - H2 JDBC
+    - PostgresSQL
+    - ...
+
+`ExpressionPayload`: Expression Payload Generation, essentially replacing the bytecode part in the bytecode template
+with the expression. Manual implementation is recommended.
+
+- `BcelConvert`: BCEL format bytecode generation
+- `JsConvert`: Oracle Nashorn JS expression loading bytecode
+- `VelocityConvert`: Velocity loading bytecode via bcel
 - ...
 
-`BytecodePayload`: 字节码生成
-  - 例如可生成执行命令字节码、Sleep字节码、DNSLog字节码，注入内存马字节码，回显字节码、中间件探测字节码、写文件字节码、下载文件字节码
-  - 支持自定义字节码版本
-  - 支持自定义字节码类名
-  - 支持生成 TemplatesImpl 字节码格式 - 实现 AbstractTranslet 接口
-  - 支持使用 Class-Obf 进行字节码混淆
+`BytecodePayload`: Bytecode Generation
 
-`XStreamPayload`: XStream 数据生成，暂未全面测试，部分Payload无法使用
+- For example, can generate bytecode for command execution, Sleep, DNSLog, in-memory webshell injection, echo,
+  middleware detection, file writing, and file downloading.
+- Supports custom bytecode version
+- Supports custom bytecode class name
+- Supports generating TemplatesImpl bytecode format - implementing the AbstractTranslet interface
+- Supports bytecode obfuscation using Class-Obf
 
----
-
-本平台生成的 Payload 支持的一些混淆情况如下：
-
-|                       | JavaNativePayload | HessianPayload | Hessian2Payload |
-|-----------------------| ----------------- | -------------- | --------------- |
-| 随机集合脏数据填充             | ✅                 | ✅              | ✅               |
-| 垃圾类填充                 | ✅                 | ✅              | ✅               |
-| UTF-8 Overlong Encoding | ✅                 | ✅              | ✅               |
-| TC_RESET 填充           | ✅                 | ❌              | ❌               |
+`XStreamPayload`: XStream data generation, not fully tested yet, some Payloads may not be usable.
 
 ---
 
-注：若想通过 UserCustomByteArrayFromXXX 提供自定义的Java序列化字节流数据来进行混淆，那么目前暂不支持使用随机集合与垃圾类插入混淆，这与混淆的实现有关，具体支持情况如下：
+The Payloads generated by this platform support the following obfuscation scenarios:
 
-|                         | JavaNativePayload(自定义序列化场景) |
-| ----------------------- | ----------------------------------- |
-| 随机集合混淆            | ❌                                   |
-| 垃圾类插入              | ❌                                   |
-| UTF-8 Overlong Encoding | ✅                                   |
-| TC_RESET 填充           | ✅                                   |
+|                                      | JavaNativePayload | HessianPayload | Hessian2Payload |
+|--------------------------------------|-------------------|----------------|-----------------|
+| Random Collection Dirty Data Padding | ✅                 | ✅              | ✅               |
+| Garbage Class Padding                | ✅                 | ✅              | ✅               |
+| UTF-8 Overlong Encoding              | ✅                 | ✅              | ✅               |
+| TC_RESET Padding                     | ✅                 | ❌              | ❌               |
 
-### JNDI 注入利用模块 (JNDI)
+---
 
-支持六种利用姿势，外加一个便于一键测试常见链的 ShowHand 链
+Note: If you want to use `UserCustomByteArrayFromXXX` to provide custom Java serialized byte stream data for
+obfuscation, currently it does not support random collection and garbage class insertion obfuscation. This is related to
+the implementation of obfuscation. The specific support is as follows:
 
-`JndiBasicPayload`: LDAP 远程加载字节码
+|                               | JavaNativePayload (Custom Serialization Scenario) |
+|-------------------------------|---------------------------------------------------|
+| Random Collection Obfuscation | ❌                                                 |
+| Garbage Class Insertion       | ❌                                                 |
+| UTF-8 Overlong Encoding       | ✅                                                 |
+| TC_RESET Padding              | ✅                                                 |
 
-`JndiDeserializationPayload`: LDAP 中基于 javaSerializedData 字段实现的反序列化
+### JNDI Injection Exploitation Module (JNDI)
 
-`JndiResourceRefPayload`: LDAP 基于 BeanFactory 的 Tomcat EL、Groovy等利用
+Supports six exploitation techniques, plus a ShowHand chain for easy one-click testing of common chains.
 
-`JndiReferencePayload`: LDAP 基于其他 ObjectFactory 的Reference利用，例如各种DataSource JDBC利用
+`JndiBasicPayload`: LDAP remote bytecode loading
 
-`JndiRMIDeserializePayload`: LDAP 高版本 JDK 绕过之RMI反序列化
+`JndiDeserializationPayload`: Deserialization based on the javaSerializedData field in LDAP
 
-`JndiRefBypassPayload`: LDAP 高版本 JDK 绕过之ReferenceBypass
+`JndiResourceRefPayload`: LDAP exploitation based on BeanFactory Tomcat EL, Groovy, etc.
 
-`JndiShowHandPayload`: JNDI梭哈链，一键测试常规利用链，提高测试效率
+`JndiReferencePayload`: LDAP Reference exploitation based on other ObjectFactories, such as various DataSource JDBC
+exploits.
 
-### Mysql JDBC 反序列化利用模块 (Fake MySQL)
+`JndiRMIDeserializePayload`: RMI deserialization to bypass high version JDK in LDAP
 
-`FakeMySQLPayload`: MySQL JDBC 反序列化利用姿势
+`JndiRefBypassPayload`: ReferenceBypass to bypass high version JDK in LDAP
 
-`FakeMySQLReadPayload`: MySQL JDBC 客户端文件读取利用姿势
+`JndiShowHandPayload`: JNDI ShowHand Chain, one-click testing of common exploitation chains to improve testing
+efficiency.
 
-`FakeMySQLSHPayload`: FakeMySQL 反序列化梭哈链，一键测试常规反序列化链，提高测试效率
+### MySQL JDBC Deserialization Exploitation Module (Fake MySQL)
 
-### JRMP 反序列化利用模块 (JRMPListener)
+`FakeMySQLPayload`: MySQL JDBC deserialization exploitation technique
 
-可配合 JRMPClient 反序列化链实现RMI低版本的绕过
+`FakeMySQLReadPayload`: MySQL JDBC client file read exploitation technique
+
+`FakeMySQLSHPayload`: FakeMySQL deserialization ShowHand Chain, one-click testing of common deserialization chains to
+improve testing efficiency.
+
+### JRMP Deserialization Exploitation Module (JRMPListener)
+
+Can be used with JRMPClient deserialization chain to bypass low versions of RMI.
 
 ### TCP Server
 
-一个简易的 TCP Server，可以将生成的Payload文件挂载到TCP端口服务上，访问该端口即可返回指定内容
+A simple TCP Server that can mount generated Payload files to a TCP port. Accessing this port will return the specified
+content.
 
-适用于 Derby 反序列化 RCE 场景，可直接通过tcp端口获取反序列化数据
+Suitable for Derby deserialization RCE scenarios, can directly obtain deserialization data through the TCP port.
 
 ### HTTP Server
 
-一个简易的HTTP服务器，将生成的Payload文件挂载到HTTP端口服务上，访问指定端口即可返回指定内容
+A simple HTTP server that mounts generated Payload files to an HTTP port. Accessing the specified port will return the
+specified content.
 
-适用于 postgresql 远程加载 SpringBeanXML 文件等场景
+Suitable for scenarios such as PostgreSQL remote loading of SpringBeanXML files.
 
+### Tools
 
-### 小工具(Tools)
-
-底层调用了 SerializationDumper，能够解析序列化数据，并能实现手动更改类的 serialVersionUID 字段
+Underlyingly calls SerializationDumper, which can parse serialized data and manually modify the serialVersionUID field
+of classes.
 
 ![SerializationDumper.png](./img/SerializationDumper.png)
 
-## 快速开始
+## Quick Start
 
-**特别注意：我们默认只对 8011 端口进行了随机密码的登陆保护。其他端口可能存在被反制的风险，使用完相关功能后记得及时关闭相应端口
-**
+**Special Note: We only provide random password login protection for port 8011 by default. Other ports may have the risk
+of being counter-exploited. Please remember to close the corresponding ports after using the relevant functions.**
 
-### 方式一：Docker
+### Method 1: Docker
 
-你可以通过 `docker` 一条命令启动 `web-chains` 项目（这也是推荐做法）
+You can start the `web-chains` project with a single `docker` command (recommended approach).
 
 ```shell
 docker run -d \
@@ -157,87 +172,97 @@ docker run -d \
   javachains/webchains:1.3.0
 ```
 
-可通过环境变量配置鉴权或密码；
+Authentication or password can be configured through environment variables;
 
-**CHAINS_AUTH**: true为开启鉴权，false为关闭鉴权，默认开启鉴权
+**CHAINS_AUTH**: `true` to enable authentication, `false` to disable authentication. Authentication is enabled by
+default.
 
-**CHAINS_PASS**: 指定web密码，若该变量为空则随机生成密码，默认随机生成密码
+**CHAINS_PASS**: Specify the web password. If this variable is empty, a random password will be generated. Random
+password generation is the default.
 
-备注：生成功能仅使用 `8011` 端口即可，其他端口为 `exploit` 模块使用
+Note: Only port `8011` is required for the generation function. Other ports are used by the `exploit` module.
 
-使用以下命令从docker中获取随机生成的强密码
+Use the following command to retrieve the randomly generated strong password from Docker:
 
 ```shell
 docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -E 'password'
 ```
 
-输出示例
+Output example:
 
 ```text
 11-12 06:59:53.301 INFO  [main] c.a.c.w.c.SecurityConfig       |  | password: XSsWerJFGcCjB8FU
 ```
 
-登录页面：`http://your-ip:8011`
+Login page: `http://your-ip:8011`
 
-### 方式二：Jar包启动
+### Method 2: Jar Package Startup
 
-⚠️仅支持 JDK8，推荐使用 Temurin8/Zulu8 JDK
+⚠️ Only JDK8 is supported. Temurin8/Zulu8 JDK is recommended.
 
-使用 `java -jar web-chains.jar` 即可启动，每次启动后会打印出随机生成的密码
+Use `java -jar web-chains.jar` to start. A randomly generated password will be printed after each startup.
 
-默认监听 0.0.0.0 ，登录页面：`http://your-ip:8011` （使用这里的用户名密码登录）
+Default listening address is 0.0.0.0. Login page: `http://your-ip:8011` (Use the username and password here to log in).
 
-可通过环境变量设置web登录密码，例如：
+You can set the web login password through environment variables, for example:
 
-Linux：
+Linux:
 
 ```bash
 export CHAINS_PASS=[your_password] && java -jar web-chains.jar
 ```
 
-Windows：
+Windows:
 
 ```cmd
 set CHAINS_PASS=[your_password] && java -jar web-chains.jar
 ```
 
-## 详细使用
+## Detailed use
 
-详细使用文档：https://www.yuque.com/shenjingwa-leuvd/wpqdhf/eekyvau9fcblzzt0
+Detailed Documentation: https://www.yuque.com/shenjingwa-leuvd/wpqdhf/war0zkzgzg3c4bzg
 
-## 其他
+## Other
 
-本工具的优势：
+Advantages of this tool:
 
-1. 相较于命令行的各种工具，Web 界面上的操作更加简单易用，能够在很方便的生成 JNDI 注入、MySQL JDBC 等测试 Payload
-2. 将各种 Payload 进行解耦与复用，前端动态渲染参数输入框，方便拓展与维护
-3. 搜集整理并覆盖了较为全面的 Java、Hessian 等反序列化 Payload，集成了各种小 trick 以及混淆等姿势
+1. Compared to command-line tools, web interface operations are simpler and easier to use, making it convenient to
+   generate JNDI injection, MySQL JDBC, and other test Payloads.
+2. Decouples and reuses various Payloads, with dynamically rendered parameter input boxes on the frontend, facilitating
+   expansion and maintenance.
+3. Collects and organizes a comprehensive range of Java, Hessian, and other deserialization Payloads, integrating
+   various tricks and obfuscation techniques.
 
-劣势（同时也是待改进的点）：
+Disadvantages (also points to be improved):
 
-1. 生成的某些冷门 Payload 组合无法正常使用。由于解耦会导致组合的复杂度上升，并且目前无法覆盖测试所有 Payload
-   组合。针对该情况，目前的缓解措施是通过 Payload 输出框上方的有个下拉选项【预设链】，提供了测试好的链子组合，可以提供一些参考。
-   生成冷门 Payload 组合建议提前测试一下，若发现无法正常运行的 Payload 可以提交 Issues 反馈
-2. 由于需要各种依赖去生成Payload，所以项目的 jar 包的体积较大 (200+MB)
-3. 比较冷门的以及实战价值比较低的 Payload 暂未集成
+1. Some less common Payload combinations may not work properly. Due to decoupling, the complexity of combinations
+   increases, and it is currently impossible to cover and test all Payload combinations. To mitigate this, the platform
+   provides a [Preset Chain] dropdown option above the Payload output box, offering tested chain combinations for
+   reference. It is recommended to test less common Payload combinations in advance. If you find Payloads that do not
+   run properly, you can submit Issues for feedback.
+2. Due to the need for various dependencies to generate Payloads, the project's jar package is relatively large (
+   200+MB).
+3. Less common Payloads and Payloads with low practical value are not yet integrated.
 
-常见问题：
+Common questions:
 
-问：为什么用 Web，而不是 Java GUI？
+Q: Why use Web instead of Java GUI?
 
-答：各有优势，但是我认为 Web 适用场景较广，主要是很方便的在服务器上操作生成 JNDI 注入等 Payload
+A: Both have advantages, but I believe Web has a wider range of application scenarios. The main reason is that it is
+very convenient to operate on the server to generate JNDI injection and other Payloads.
 
-## 更新内容
+## Updated content
 
 [CHANGELOG.md](./CHANGELOG.md)
 
-## 参考和致谢
+## References and acknowledgments
 
-仅支持个人研究学习，切勿用于非法犯罪活动。
+It only supports personal research and learning, and should never be used for illegal and criminal activities.
 
-本项目的开发者、提供者和维护者不对使用者使用工具的行为和后果负责，工具的使用者应自行承担风险。
+The developers, providers and maintainers of the project are not responsible for the actions and consequences of the
+user's use of the tool, and the user of the tool shall do so at their own risk.
 
-参考致谢：
+Acknowledgments:
 
 - https://github.com/wh1t3p1g/ysomap
 - https://github.com/qi4L/JYso
@@ -245,7 +270,6 @@ set CHAINS_PASS=[your_password] && java -jar web-chains.jar
 - https://github.com/Whoopsunix/PPPYSO
 - https://github.com/jar-analyzer/class-obf
 - https://github.com/4ra1n/mysql-fake-server
-- https://github.com/jar-analyzer/class-obf
 - https://github.com/mbechler/marshalsec
 - https://github.com/frohoff/ysoserial
 - https://github.com/H4cking2theGate/ysogate
@@ -258,6 +282,10 @@ set CHAINS_PASS=[your_password] && java -jar web-chains.jar
 - https://github.com/NickstaDB/SerializationDumper
 - https://xz.aliyun.com/t/5381
 - http://rui0.cn/archives/1408
+
+## Communication
+
+If you have any questions, please feel free to send issus
 
 ## Star History
 
