@@ -15,7 +15,7 @@ JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便�
 > 我们站在巨人肩膀上，致力于打造最强的 Java 安全研究领域的瑞士军刀
 
 <p align="center">
-  <img src="./img/main.png" />
+  <img src="./img/main.zh-cn.png" />
 </p>
 
 ## 模块介绍

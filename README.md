@@ -1,4 +1,4 @@
-<h4 align="right"><strong><a href="./README.zh-cn.md">中文</a></strong> | English </h4>
+<h4 align="right">English | <strong><a href="./README.zh-cn.md">中文</a></strong></h4>
 <h1 align="center">Web Chains</h1>
 <div align="center">
 <img alt="downloads" src="https://img.shields.io/github/downloads/java-chains/web-chains/total"/>
@@ -17,6 +17,78 @@ extent.
 <p align="center">
   <img src="./img/main.png" />
 </p>
+
+## Quick Start
+
+**Special Note: We only provide random password login protection for port 8011 by default. Other ports may have the risk
+of being counter-exploited. Please remember to close the corresponding ports after using the relevant functions.**
+
+### Method 1: Docker
+
+You can start the `web-chains` project with a single `docker` command (recommended approach).
+
+```shell
+docker run -d \
+  --name web-chains \
+  --restart=always \
+  -p 8011:8011 \
+  -p 58080:58080 \
+  -p 50389:50389 \
+  -p 50388:50388 \
+  -p 13999:13999 \
+  -p 3308:3308 \
+  -p 11527:11527 \
+  -p 50000:50000 \
+  -e CHAINS_AUTH=true \
+  -e CHAINS_PASS= \
+  javachains/webchains:1.3.0
+```
+
+Authentication or password can be configured through environment variables;
+
+**CHAINS_AUTH**: `true` to enable authentication, `false` to disable authentication. Authentication is enabled by
+default.
+
+**CHAINS_PASS**: Specify the web password. If this variable is empty, a random password will be generated. Random
+password generation is the default.
+
+Note: Only port `8011` is required for the generation function. Other ports are used by the `exploit` module.
+
+Use the following command to retrieve the randomly generated strong password from Docker:
+
+```shell
+docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -E 'password'
+```
+
+Output example:
+
+```text
+11-12 06:59:53.301 INFO  [main] c.a.c.w.c.SecurityConfig       |  | password: XSsWerJFGcCjB8FU
+```
+
+Login page: `http://your-ip:8011`
+
+### Method 2: Jar Package Startup
+
+⚠️ Only JDK8 is supported. Temurin8/Zulu8 JDK is recommended.
+
+Use `java -jar web-chains.jar` to start. A randomly generated password will be printed after each startup.
+
+Default listening address is 0.0.0.0. Login page: `http://your-ip:8011` (Use the username and password here to log in).
+
+You can set the web login password through environment variables, for example:
+
+Linux:
+
+```bash
+export CHAINS_PASS=[your_password] && java -jar web-chains.jar
+```
+
+Windows:
+
+```cmd
+set CHAINS_PASS=[your_password] && java -jar web-chains.jar
+```
 
 ## Module Introduction
 
@@ -145,78 +217,6 @@ Underlyingly calls SerializationDumper, which can parse serialized data and manu
 of classes.
 
 ![SerializationDumper.png](./img/SerializationDumper.png)
-
-## Quick Start
-
-**Special Note: We only provide random password login protection for port 8011 by default. Other ports may have the risk
-of being counter-exploited. Please remember to close the corresponding ports after using the relevant functions.**
-
-### Method 1: Docker
-
-You can start the `web-chains` project with a single `docker` command (recommended approach).
-
-```shell
-docker run -d \
-  --name web-chains \
-  --restart=always \
-  -p 8011:8011 \
-  -p 58080:58080 \
-  -p 50389:50389 \
-  -p 50388:50388 \
-  -p 13999:13999 \
-  -p 3308:3308 \
-  -p 11527:11527 \
-  -p 50000:50000 \
-  -e CHAINS_AUTH=true \
-  -e CHAINS_PASS= \
-  javachains/webchains:1.3.0
-```
-
-Authentication or password can be configured through environment variables;
-
-**CHAINS_AUTH**: `true` to enable authentication, `false` to disable authentication. Authentication is enabled by
-default.
-
-**CHAINS_PASS**: Specify the web password. If this variable is empty, a random password will be generated. Random
-password generation is the default.
-
-Note: Only port `8011` is required for the generation function. Other ports are used by the `exploit` module.
-
-Use the following command to retrieve the randomly generated strong password from Docker:
-
-```shell
-docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -E 'password'
-```
-
-Output example:
-
-```text
-11-12 06:59:53.301 INFO  [main] c.a.c.w.c.SecurityConfig       |  | password: XSsWerJFGcCjB8FU
-```
-
-Login page: `http://your-ip:8011`
-
-### Method 2: Jar Package Startup
-
-⚠️ Only JDK8 is supported. Temurin8/Zulu8 JDK is recommended.
-
-Use `java -jar web-chains.jar` to start. A randomly generated password will be printed after each startup.
-
-Default listening address is 0.0.0.0. Login page: `http://your-ip:8011` (Use the username and password here to log in).
-
-You can set the web login password through environment variables, for example:
-
-Linux:
-
-```bash
-export CHAINS_PASS=[your_password] && java -jar web-chains.jar
-```
-
-Windows:
-
-```cmd
-set CHAINS_PASS=[your_password] && java -jar web-chains.jar
-```
 
 ## Detailed use
 
