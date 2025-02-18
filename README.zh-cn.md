@@ -203,6 +203,8 @@ set CHAINS_PASS=[your_password] && java -jar web-chains.jar
 
 ## 详细使用
 
+Github Wiki: https://github.com/Java-Chains/web-chains/wiki
+
 详细使用文档：https://www.yuque.com/shenjingwa-leuvd/wpqdhf/eekyvau9fcblzzt0
 
 ## 其他

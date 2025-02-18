@@ -220,7 +220,9 @@ of classes.
 
 ## Detailed use
 
-Detailed Documentation: https://www.yuque.com/shenjingwa-leuvd/wpqdhf/war0zkzgzg3c4bzg
+Github Wiki: https://github.com/Java-Chains/web-chains/wiki
+
+or Documentation: https://www.yuque.com/shenjingwa-leuvd/wpqdhf/war0zkzgzg3c4bzg
 
 ## Other
 
