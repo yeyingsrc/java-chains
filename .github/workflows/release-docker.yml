@@ -19,7 +19,7 @@ jobs:
         uses: robinraju/release-downloader@v1
         with:
           token: ${{ secrets.DEPENDENCY_REPO_TOKEN }}
-          repository: java-Chains/chains
+          repository: Java-Chains/web-chains
           tag: ${{ inputs.version }}
           out-file-path: ./   # 下载到当前目录下
           fileName: web-chains-${{ inputs.version }}-all.tar.gz
