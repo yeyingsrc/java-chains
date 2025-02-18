@@ -41,7 +41,7 @@ docker run -d \
   -p 50000:50000 \
   -e CHAINS_AUTH=true \
   -e CHAINS_PASS= \
-  javachains/webchains:1.3.0
+  javachains/webchains:1.3.1
 ```
 
 Authentication or password can be configured through environment variables;

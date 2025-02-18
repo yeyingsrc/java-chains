@@ -1,3 +1,14 @@
+## 1.3.1
+
+- [New Chain] SpringAopAspectjweaver
+- [Bugfix] Fixed issue where Payload parameters were ineffective in version 1.3.0
+- [Bugfix] Fixed parameter setting errors for some Gadgets
+- [Optimization] Improved generation speed for large packets of overlong UTF8 dirty data
+- [Optimization] Added support for obfuscation in secondary deserialization
+- [Optimization] Improved descriptions for some chains
+- [Optimization] Added extra information to the Context output box
+- [Optimization] Frontend display improvements
+
 ## 1.3.0
 
 - [Feature] Added [SerializationDumper](https://github.com/NickstaDB/SerializationDumper) for parsing Java serialized

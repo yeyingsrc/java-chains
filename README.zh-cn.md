@@ -154,7 +154,7 @@ docker run -d \
   -p 50000:50000 \
   -e CHAINS_AUTH=true \
   -e CHAINS_PASS= \
-  javachains/webchains:1.3.0
+  javachains/webchains:1.3.1
 ```
 
 可通过环境变量配置鉴权或密码；

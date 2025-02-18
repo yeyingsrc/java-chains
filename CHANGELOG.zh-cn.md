@@ -1,3 +1,14 @@
+## 1.3.1
+
+- [新链] SpringAopAspectjweaver
+- [Bugfix] 修复在 1.3.0 版本中 Payload 参数不生效问题
+- [Bugfix] 修复一些 Gadget 参数设置报错问题
+- [优化] 提高脏数据 overlong utf8 大包生成速度
+- [优化] 在二次反序列化中支持混淆
+- [优化] 部分链的描述
+- [优化] Context 输出框新增额外信息
+- [优化] 前端显示
+
 ## 1.3.0
 
 - [功能] 新增 [SerializationDumper](https://github.com/NickstaDB/SerializationDumper) 解析Java序列化数据，并自定义修改任意类
