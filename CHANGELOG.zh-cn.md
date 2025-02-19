@@ -1,9 +1,9 @@
 ## 1.3.1
 
-**Added**
+**新增**
 - SpringAopAspectjweaver 链
 
-**Bugfix**
+**Bug修复**
 - 修复在 1.3.0 版本中 Payload 参数不生效问题
 - 修复一些 Gadget 参数设置报错问题
 
