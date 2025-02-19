@@ -12,7 +12,7 @@
 `Web-Chains` 是一个 Java Payload 生成与漏洞利用 Web 平台，便于广大安全研究员快速生成 Java Payload，以及对
 JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便快速测试，能够在一定程度上提高测试效率。
 
-> 我们站在巨人肩膀上，致力于打造最强的 Java 安全研究领域的瑞士军刀
+> 站在巨人肩膀上
 
 <p align="center">
   <img src="./img/main.zh-cn.png" />

@@ -14,6 +14,8 @@ researchers in quickly generating Java Payloads and conveniently and rapidly tes
 injection, MySQL JDBC deserialization, and JRMP deserialization. It aims to improve testing efficiency to a certain
 extent.
 
+> Standing on the shoulders of giants
+
 <p align="center">
   <img src="./img/main.png" />
 </p>
