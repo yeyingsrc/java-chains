@@ -1,15 +1,15 @@
 <h4 align="right">English | <strong><a href="./README.zh-cn.md">简体中文</a></strong></h4>
-<h1 align="center">Web Chains</h1>
+<h1 align="center">Java Chains</h1>
 <div align="center">
-<img alt="downloads" src="https://img.shields.io/github/downloads/java-chains/web-chains/total"/>
-<img alt="release" src="https://img.shields.io/github/v/release/java-chains/web-chains"/>
-<img alt="GitHub Stars" src="https://img.shields.io/github/stars/Java-Chains/web-chains?color=success"/>
+<img alt="downloads" src="https://img.shields.io/github/downloads/vulhub/java-chains/total"/>
+<img alt="release" src="https://img.shields.io/github/v/release/vulhub/java-chains"/>
+<img alt="GitHub Stars" src="https://img.shields.io/github/stars/vulhub/java-chains?color=success"/>
 <div align="center">
     <img src="./img/logo.png" width="60" alt="center">
 </div>
 </div>
 
-`Web-Chains` is a Java Payload generation and vulnerability exploitation web platform, designed to facilitate security
+`Java-Chains` is a Java Payload generation and vulnerability exploitation web platform, designed to facilitate security
 researchers in quickly generating Java Payloads and conveniently and rapidly testing vulnerabilities such as JNDI
 injection, MySQL JDBC deserialization, and JRMP deserialization. It aims to improve testing efficiency to a certain
 extent.
@@ -27,7 +27,7 @@ of being counter-exploited. Please remember to close the corresponding ports aft
 
 ### Method 1: Docker
 
-You can start the `web-chains` project with a single `docker` command (recommended approach).
+You can start the `java-chains` project with a single `docker` command (recommended approach).
 
 ```shell
 docker run -d \
@@ -94,7 +94,7 @@ set CHAINS_PASS=[your_password] && java -jar web-chains.jar
 
 ## Module Introduction
 
-`Web-Chains` comprises the following six major modules:
+`Java-Chains` comprises the following six major modules:
 
 ### Generation Module (Generate)
 
@@ -222,7 +222,7 @@ of classes.
 
 ## Detailed use
 
-Github Wiki: https://github.com/Java-Chains/web-chains/wiki
+Github Wiki: https://github.com/vulhub/java-chains/wiki
 
 or Documentation: https://www.yuque.com/shenjingwa-leuvd/wpqdhf/war0zkzgzg3c4bzg
 
@@ -293,4 +293,4 @@ If you have any questions, please feel free to send issus
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=java-chains/web-chains&type=Date)](https://star-history.com/#java-chains/web-chains&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=vulhub/java-chains&type=Date)](https://star-history.com/#vulhub/java-chains&Date)

@@ -1,15 +1,15 @@
-<h4 align="right">中文 | <strong><a href="./en/README_EN.md">English</a></strong> </h4>
-<h1 align="center">Web Chains</h1>
+<h4 align="right"><strong><a href="./README.md">English</a></strong> | 简体中文</h4>
+<h1 align="center">Java Chains</h1>
 <div align="center">
-<img alt="downloads" src="https://img.shields.io/github/downloads/java-chains/web-chains/total"/>
-<img alt="release" src="https://img.shields.io/github/v/release/java-chains/web-chains"/>
-<img alt="GitHub Stars" src="https://img.shields.io/github/stars/Java-Chains/web-chains?color=success"/>
+<img alt="downloads" src="https://img.shields.io/github/downloads/vulhub/java-chains/total"/>
+<img alt="release" src="https://img.shields.io/github/v/release/vulhub/java-chains"/>
+<img alt="GitHub Stars" src="https://img.shields.io/github/stars/vulhub/java-chains?color=success"/>
 <div align="center">
     <img src="img/logo.png" width="60" alt="center">
 </div>
 </div>
 
-`Web-Chains` 是一个 Java Payload 生成与漏洞利用 Web 平台，便于广大安全研究员快速生成 Java Payload，以及对
+`Java-Chains` 是一个 Java Payload 生成与漏洞利用 Web 平台，便于广大安全研究员快速生成 Java Payload，以及对
 JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便快速测试，能够在一定程度上提高测试效率。
 
 > 站在巨人肩膀上
@@ -20,7 +20,7 @@ JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便�
 
 ## 模块介绍
 
-`Web-Chains` 含有以下六大模块
+`Java-Chains` 含有以下六大模块
 
 ### 生成模块(Generate)
 
@@ -138,7 +138,7 @@ JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便�
 
 ### 方式一：Docker
 
-你可以通过 `docker` 一条命令启动 `web-chains` 项目（这也是推荐做法）
+你可以通过 `docker` 一条命令启动 `java-chains` 项目（这也是推荐做法）
 
 ```shell
 docker run -d \
@@ -203,7 +203,7 @@ set CHAINS_PASS=[your_password] && java -jar web-chains.jar
 
 ## 详细使用
 
-Github Wiki: https://github.com/Java-Chains/web-chains/wiki
+Github Wiki: https://github.com/vulhub/java-chains/wiki
 
 详细使用文档：https://www.yuque.com/shenjingwa-leuvd/wpqdhf/eekyvau9fcblzzt0
 
@@ -263,4 +263,4 @@ Github Wiki: https://github.com/Java-Chains/web-chains/wiki
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=java-chains/web-chains&type=Date)](https://star-history.com/#java-chains/web-chains&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=vulhub/java-chains&type=Date)](https://star-history.com/#vulhub/java-chains&Date)
