@@ -1,4 +1,4 @@
-<h4 align="right">English | <strong><a href="./README.zh-cn.md">简体中文(Chinese)</a></strong></h4>
+<h4 align="right">English | <strong><a href="./README.zh-cn.md">简体中文</a></strong></h4>
 <h1 align="center">Web Chains</h1>
 <div align="center">
 <img alt="downloads" src="https://img.shields.io/github/downloads/java-chains/web-chains/total"/>
