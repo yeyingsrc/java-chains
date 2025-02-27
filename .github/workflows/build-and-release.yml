@@ -157,6 +157,7 @@ jobs:
         run: |
           cd release
           git clone https://${{ secrets.DEPENDENCY_REPO_TOKEN }}@github.com/Java-Chains/chains-config.git chains-config
+          rm -rf chains-config/.git
           tar -czvf web-chains-all.tar.gz web-chains.jar chains-config
           cd ..
 
