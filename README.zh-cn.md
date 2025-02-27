@@ -3,6 +3,9 @@
 <div align="center">
 <img alt="downloads" src="https://img.shields.io/github/downloads/vulhub/java-chains/total"/>
 <img alt="release" src="https://img.shields.io/github/v/release/vulhub/java-chains"/>
+<a href="https://discord.gg/ukC8KTrRXv">
+  <img src="https://img.shields.io/discord/485505185167179778.svg" alt="Chat on Discord">
+</a>
 <img alt="GitHub Stars" src="https://img.shields.io/github/stars/vulhub/java-chains?color=success"/>
 <div align="center">
     <img src="img/logo.png" width="60" alt="center">
