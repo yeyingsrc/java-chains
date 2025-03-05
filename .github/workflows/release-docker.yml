@@ -18,7 +18,7 @@ jobs:
       - name: Download And Extract Release Artifact
         uses: robinraju/release-downloader@v1
         with:
-          token: ${{ secrets.DEPENDENCY_REPO_TOKEN }}
+          token: ${{ secrets.JAVA_CHAINS_RELEASE_TOKEN }}
           repository: vulhub/java-chains
           tag: ${{ inputs.version }}
           out-file-path: ./   # 下载到当前目录下
