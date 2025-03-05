@@ -25,8 +25,9 @@ extent.
 
 ## Quick Start
 
-**Special Note: We only provide random password login protection for port 8011 by default. Other ports may have the risk
-of being counter-exploited. Please remember to close the corresponding ports after using the relevant functions.**
+> [!WARNING]
+> Special Note: We only provide random password login protection for port 8011 by default. Other ports may have the risk
+> of being counter-exploited. Please remember to close the corresponding ports after using the relevant functions.
 
 ### Method 1: Docker
 
@@ -34,7 +35,7 @@ You can start the `java-chains` project with a single `docker` command (recommen
 
 ```shell
 docker run -d \
-  --name web-chains \
+  --name java-chains \
   --restart=always \
   -p 8011:8011 \
   -p 58080:58080 \
@@ -46,7 +47,7 @@ docker run -d \
   -p 50000:50000 \
   -e CHAINS_AUTH=true \
   -e CHAINS_PASS= \
-  javachains/webchains:1.3.1
+  javachains/javachains:1.4.0
 ```
 
 Authentication or password can be configured through environment variables;
@@ -77,7 +78,7 @@ Login page: `http://your-ip:8011`
 
 ⚠️ Only JDK8 is supported. Temurin8/Zulu8 JDK is recommended.
 
-Use `java -jar web-chains.jar` to start. A randomly generated password will be printed after each startup.
+Use `java -jar java-chains.jar` to start. A randomly generated password will be printed after each startup.
 
 Default listening address is 0.0.0.0. Login page: `http://your-ip:8011` (Use the username and password here to log in).
 
@@ -86,13 +87,13 @@ You can set the web login password through environment variables, for example:
 Linux:
 
 ```bash
-export CHAINS_PASS=[your_password] && java -jar web-chains.jar
+export CHAINS_PASS=[your_password] && java -jar java-chains.jar
 ```
 
 Windows:
 
 ```cmd
-set CHAINS_PASS=[your_password] && java -jar web-chains.jar
+set CHAINS_PASS=[your_password] && java -jar java-chains.jar
 ```
 
 ## Module Introduction

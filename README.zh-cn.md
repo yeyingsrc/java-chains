@@ -21,123 +21,10 @@ JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便�
   <img src="./img/main.zh-cn.png" />
 </p>
 
-## 模块介绍
-
-`Java-Chains` 含有以下六大模块
-
-### 生成模块(Generate)
-
-`JavaNativePayload`: Java 反序列化原生 Payload 生成
-
-`HessianPayload`: Hessian1 反序列化 Payload 生成，并支持 HessianServlet 格式反序列化数据
-
-`Hessian2Payload`: Hessian2 反序列化 Payload 生成
-
-`ShiroPayload`: Shiro Payload 生成，在某些特殊环境下方便手动进行生成与测试
- - 支持自定义 AES KEY
- - 支持 AES GCM 模式
- - 支持插入 Base64 混淆字符
-
-`OtherPayload`
-- `CharsetJarConvet`: 生成 charsets.jar 包，适用于 SpringBoot 下文件上传 RCE 场景
-- `GroovyJarConvert`: 生成 fastjson-groovy.jar 包，适用于 Fastjson 高版本下通过 Groovy 链加载特定格式 Jar 包实现 RCE）
-- `SnakeyamlJarConvert`: 生成 snakeyaml.jar 包，适用于 SnakeYaml 通过 SPI 加载特定格式 Jar 包实现 RCE
-
-- `JDBCPayload`: JDBC Payload 生成
-  - H2 JDBC
-  - PostgresSQL
-  - ...
-
-`ExpressionPayload`: 表达式 Payload 生成，本质上是将表达式加载字节码模板中的字节码部分进行替换，推荐手动实现
-- `BcelConvert`: BCEL 格式字节码生成
-- `JsConvert`: Oracle Nashorn JS 表达式加载字节码
-- `VelocityConvert`: Velocity 通过 bcel 来加载字节码
-- ...
-
-`BytecodePayload`: 字节码生成
-  - 例如可生成执行命令字节码、Sleep字节码、DNSLog字节码，注入内存马字节码，回显字节码、中间件探测字节码、写文件字节码、下载文件字节码
-  - 支持自定义字节码版本
-  - 支持自定义字节码类名
-  - 支持生成 TemplatesImpl 字节码格式 - 实现 AbstractTranslet 接口
-  - 支持使用 Class-Obf 进行字节码混淆
-
-`XStreamPayload`: XStream 数据生成，暂未全面测试，部分Payload无法使用
-
----
-
-本平台生成的 Payload 支持的一些混淆情况如下：
-
-|                       | JavaNativePayload | HessianPayload | Hessian2Payload |
-|-----------------------| ----------------- | -------------- | --------------- |
-| 随机集合脏数据填充             | ✅                 | ✅              | ✅               |
-| 垃圾类填充                 | ✅                 | ✅              | ✅               |
-| UTF-8 Overlong Encoding | ✅                 | ✅              | ✅               |
-| TC_RESET 填充           | ✅                 | ❌              | ❌               |
-
----
-
-注：若想通过 UserCustomByteArrayFromXXX 提供自定义的Java序列化字节流数据来进行混淆，那么目前暂不支持使用随机集合与垃圾类插入混淆，这与混淆的实现有关，具体支持情况如下：
-
-|                         | JavaNativePayload(自定义序列化场景) |
-| ----------------------- | ----------------------------------- |
-| 随机集合混淆            | ❌                                   |
-| 垃圾类插入              | ❌                                   |
-| UTF-8 Overlong Encoding | ✅                                   |
-| TC_RESET 填充           | ✅                                   |
-
-### JNDI 注入利用模块 (JNDI)
-
-支持六种利用姿势，外加一个便于一键测试常见链的 ShowHand 链
-
-`JndiBasicPayload`: LDAP 远程加载字节码
-
-`JndiDeserializationPayload`: LDAP 中基于 javaSerializedData 字段实现的反序列化
-
-`JndiResourceRefPayload`: LDAP 基于 BeanFactory 的 Tomcat EL、Groovy等利用
-
-`JndiReferencePayload`: LDAP 基于其他 ObjectFactory 的Reference利用，例如各种DataSource JDBC利用
-
-`JndiRMIDeserializePayload`: LDAP 高版本 JDK 绕过之RMI反序列化
-
-`JndiRefBypassPayload`: LDAP 高版本 JDK 绕过之ReferenceBypass
-
-`JndiShowHandPayload`: JNDI梭哈链，一键测试常规利用链，提高测试效率
-
-### Mysql JDBC 反序列化利用模块 (Fake MySQL)
-
-`FakeMySQLPayload`: MySQL JDBC 反序列化利用姿势
-
-`FakeMySQLReadPayload`: MySQL JDBC 客户端文件读取利用姿势
-
-`FakeMySQLSHPayload`: FakeMySQL 反序列化梭哈链，一键测试常规反序列化链，提高测试效率
-
-### JRMP 反序列化利用模块 (JRMPListener)
-
-可配合 JRMPClient 反序列化链实现RMI低版本的绕过
-
-### TCP Server
-
-一个简易的 TCP Server，可以将生成的Payload文件挂载到TCP端口服务上，访问该端口即可返回指定内容
-
-适用于 Derby 反序列化 RCE 场景，可直接通过tcp端口获取反序列化数据
-
-### HTTP Server
-
-一个简易的HTTP服务器，将生成的Payload文件挂载到HTTP端口服务上，访问指定端口即可返回指定内容
-
-适用于 postgresql 远程加载 SpringBeanXML 文件等场景
-
-
-### 小工具(Tools)
-
-底层调用了 SerializationDumper，能够解析序列化数据，并能实现手动更改类的 serialVersionUID 字段
-
-![SerializationDumper.png](./img/SerializationDumper.png)
-
 ## 快速开始
 
-**特别注意：我们默认只对 8011 端口进行了随机密码的登陆保护。其他端口可能存在被反制的风险，使用完相关功能后记得及时关闭相应端口
-**
+> [!WARNING]
+> 特别注意：我们默认只对 8011 端口进行了随机密码的登陆保护。其他端口可能存在被反制的风险，使用完相关功能后记得及时关闭相应端口
 
 ### 方式一：Docker
 
@@ -145,7 +32,7 @@ JNDI 注入、MySQL JDBC 反序列化、JRMP 反序列化等漏洞进行方便�
 
 ```shell
 docker run -d \
-  --name web-chains \
+  --name java-chains \
   --restart=always \
   -p 8011:8011 \
   -p 58080:58080 \
@@ -157,7 +44,7 @@ docker run -d \
   -p 50000:50000 \
   -e CHAINS_AUTH=true \
   -e CHAINS_PASS= \
-  javachains/webchains:1.3.1
+  javachains/javachains:1.4.0
 ```
 
 可通过环境变量配置鉴权或密码；
@@ -203,6 +90,122 @@ Windows：
 ```cmd
 set CHAINS_PASS=[your_password] && java -jar web-chains.jar
 ```
+
+## 模块介绍
+
+`Java-Chains` 含有以下六大模块
+
+### 生成模块(Generate)
+
+`JavaNativePayload`: Java 反序列化原生 Payload 生成
+
+`HessianPayload`: Hessian1 反序列化 Payload 生成，并支持 HessianServlet 格式反序列化数据
+
+`Hessian2Payload`: Hessian2 反序列化 Payload 生成
+
+`ShiroPayload`: Shiro Payload 生成，在某些特殊环境下方便手动进行生成与测试
+
+- 支持自定义 AES KEY
+- 支持 AES GCM 模式
+- 支持插入 Base64 混淆字符
+
+`OtherPayload`
+
+- `CharsetJarConvet`: 生成 charsets.jar 包，适用于 SpringBoot 下文件上传 RCE 场景
+- `GroovyJarConvert`: 生成 fastjson-groovy.jar 包，适用于 Fastjson 高版本下通过 Groovy 链加载特定格式 Jar 包实现 RCE）
+- `SnakeyamlJarConvert`: 生成 snakeyaml.jar 包，适用于 SnakeYaml 通过 SPI 加载特定格式 Jar 包实现 RCE
+
+- `JDBCPayload`: JDBC Payload 生成
+    - H2 JDBC
+    - PostgresSQL
+    - ...
+
+`ExpressionPayload`: 表达式 Payload 生成，本质上是将表达式加载字节码模板中的字节码部分进行替换，推荐手动实现
+
+- `BcelConvert`: BCEL 格式字节码生成
+- `JsConvert`: Oracle Nashorn JS 表达式加载字节码
+- `VelocityConvert`: Velocity 通过 bcel 来加载字节码
+- ...
+
+`BytecodePayload`: 字节码生成
+
+- 例如可生成执行命令字节码、Sleep字节码、DNSLog字节码，注入内存马字节码，回显字节码、中间件探测字节码、写文件字节码、下载文件字节码
+- 支持自定义字节码版本
+- 支持自定义字节码类名
+- 支持生成 TemplatesImpl 字节码格式 - 实现 AbstractTranslet 接口
+- 支持使用 Class-Obf 进行字节码混淆
+
+`XStreamPayload`: XStream 数据生成，暂未全面测试，部分Payload无法使用
+
+---
+
+本平台生成的 Payload 支持的一些混淆情况如下：
+
+|                         | JavaNativePayload | HessianPayload | Hessian2Payload |
+|-------------------------|-------------------|----------------|-----------------|
+| 随机集合脏数据填充               | ✅                 | ✅              | ✅               |
+| 垃圾类填充                   | ✅                 | ✅              | ✅               |
+| UTF-8 Overlong Encoding | ✅                 | ✅              | ✅               |
+| TC_RESET 填充             | ✅                 | ❌              | ❌               |
+
+---
+
+注：若想通过 UserCustomByteArrayFromXXX 提供自定义的Java序列化字节流数据来进行混淆，那么目前暂不支持使用随机集合与垃圾类插入混淆，这与混淆的实现有关，具体支持情况如下：
+
+|                         | JavaNativePayload(自定义序列化场景) |
+|-------------------------|-----------------------------|
+| 随机集合混淆                  | ❌                           |
+| 垃圾类插入                   | ❌                           |
+| UTF-8 Overlong Encoding | ✅                           |
+| TC_RESET 填充             | ✅                           |
+
+### JNDI 注入利用模块 (JNDI)
+
+支持六种利用姿势，外加一个便于一键测试常见链的 ShowHand 链
+
+`JndiBasicPayload`: LDAP 远程加载字节码
+
+`JndiDeserializationPayload`: LDAP 中基于 javaSerializedData 字段实现的反序列化
+
+`JndiResourceRefPayload`: LDAP 基于 BeanFactory 的 Tomcat EL、Groovy等利用
+
+`JndiReferencePayload`: LDAP 基于其他 ObjectFactory 的Reference利用，例如各种DataSource JDBC利用
+
+`JndiRMIDeserializePayload`: LDAP 高版本 JDK 绕过之RMI反序列化
+
+`JndiRefBypassPayload`: LDAP 高版本 JDK 绕过之ReferenceBypass
+
+`JndiShowHandPayload`: JNDI梭哈链，一键测试常规利用链，提高测试效率
+
+### Mysql JDBC 反序列化利用模块 (Fake MySQL)
+
+`FakeMySQLPayload`: MySQL JDBC 反序列化利用姿势
+
+`FakeMySQLReadPayload`: MySQL JDBC 客户端文件读取利用姿势
+
+`FakeMySQLSHPayload`: FakeMySQL 反序列化梭哈链，一键测试常规反序列化链，提高测试效率
+
+### JRMP 反序列化利用模块 (JRMPListener)
+
+可配合 JRMPClient 反序列化链实现RMI低版本的绕过
+
+### TCP Server
+
+一个简易的 TCP Server，可以将生成的Payload文件挂载到TCP端口服务上，访问该端口即可返回指定内容
+
+适用于 Derby 反序列化 RCE 场景，可直接通过tcp端口获取反序列化数据
+
+### HTTP Server
+
+一个简易的HTTP服务器，将生成的Payload文件挂载到HTTP端口服务上，访问指定端口即可返回指定内容
+
+适用于 postgresql 远程加载 SpringBeanXML 文件等场景
+
+### 小工具(Tools)
+
+底层调用了 SerializationDumper，能够解析序列化数据，并能实现手动更改类的 serialVersionUID 字段
+
+![SerializationDumper.png](./img/SerializationDumper.png)
 
 ## 详细使用
 
