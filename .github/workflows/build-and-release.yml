@@ -86,9 +86,9 @@ jobs:
 
       - name: Copy Frontend Assets to Backend
         run: |
-          mkdir -p web-chains/src/main/resources/static
-          rm -rf web-chains/src/main/resources/static/*
-          cp -r java-chains-front/dist/* web-chains/src/main/resources/static/
+          mkdir -p java-chains/src/main/resources/static
+          rm -rf java-chains/src/main/resources/static/*
+          cp -r java-chains-front/dist/* java-chains/src/main/resources/static/
 
       - name: Build Backend
         run: mvn clean package -DskipTests
@@ -96,8 +96,8 @@ jobs:
       - name: Create Release Directory
         run: mkdir release
 
-      - name: Copy Web-Chains JAR to Release
-        run: cp web-chains-*.jar release/web-chains.jar
+      - name: Copy Java-Chains JAR to Release
+        run: cp java-chains-*.jar release/java-chains.jar
 
       - name: Copy Chain-All JAR to Release
         run: cp chains-all-*.jar release/chains-all.jar
@@ -124,29 +124,23 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ inputs.version }}
           release_name: Release ${{ inputs.version }}
           draft: true
 
-      - name: Upload Web-Chains Release Asset
-        id: upload-web-chains-release-asset
+      - name: Upload Java-Chains Release Asset
+        id: upload-java-chains-release-asset
         uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPENDENCY_REPO_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release/web-chains.jar
-          asset_name: web-chains-${{ inputs.version }}.jar
+          asset_path: release/java-chains.jar
+          asset_name: java-chains-${{ inputs.version }}.jar
           asset_content_type: application/java-archive
 
       - name: Upload Chains-All Release Asset
         id: upload-chains-all-release-asset
         uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPENDENCY_REPO_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: release/chains-all.jar
@@ -158,16 +152,14 @@ jobs:
           cd release
           git clone https://${{ secrets.DEPENDENCY_REPO_TOKEN }}@github.com/Java-Chains/chains-config.git chains-config
           rm -rf chains-config/.git
-          tar -czvf web-chains-all.tar.gz web-chains.jar chains-config
+          tar -czvf java-chains-all.tar.gz java-chains.jar chains-config
           cd ..
 
       - name: Upload Release Asset (Tarball)
         id: upload-release-asset-tar
         uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPENDENCY_REPO_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release/web-chains-all.tar.gz
-          asset_name: web-chains-${{ inputs.version }}-all.tar.gz
+          asset_path: release/java-chains-all.tar.gz
+          asset_name: java-chains-${{ inputs.version }}-all.tar.gz
           asset_content_type: application/gzip
