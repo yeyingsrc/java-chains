@@ -124,6 +124,8 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.JAVA_CHAINS_RELEASE_TOKEN }}
         with:
           tag_name: ${{ inputs.version }}
           release_name: Release ${{ inputs.version }}
@@ -132,6 +134,8 @@ jobs:
       - name: Upload Java-Chains Release Asset
         id: upload-java-chains-release-asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.JAVA_CHAINS_RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: release/java-chains.jar
@@ -141,6 +145,8 @@ jobs:
       - name: Upload Chains-All Release Asset
         id: upload-chains-all-release-asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.JAVA_CHAINS_RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: release/chains-all.jar
@@ -158,6 +164,8 @@ jobs:
       - name: Upload Release Asset (Tarball)
         id: upload-release-asset-tar
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.JAVA_CHAINS_RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: release/java-chains-all.tar.gz
