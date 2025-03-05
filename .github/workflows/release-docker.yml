@@ -22,7 +22,7 @@ jobs:
           repository: vulhub/java-chains
           tag: ${{ inputs.version }}
           out-file-path: ./   # 下载到当前目录下
-          fileName: web-chains-${{ inputs.version }}-all.tar.gz
+          fileName: java-chains-${{ inputs.version }}-all.tar.gz
           extract: true # 解压缩
 
       - name: Show Files
@@ -50,5 +50,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            javachains/webchains:${{ inputs.version }}
-            javachains/webchains:latest
+            javachains/javachains:${{ inputs.version }}
+            javachains/javachains:latest
