@@ -2,7 +2,7 @@
 
 **Added**
 
-- Integrated some FastjsonPayloads
+- Integrated some FastjsonPayload @iSafeBlue
 - Added the following Expression Injection Payloads:
     - FreeMarker
     - JXPath @unam4

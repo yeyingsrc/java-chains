@@ -2,7 +2,7 @@
 
 **Added**
 
-- 集成部分 FastjsonPayload
+- 集成部分 FastjsonPayload @iSafeBlue
 - 添加以下表达式注入 Payload
     - FreeMarker
     - JXPath @unam4
