@@ -58,7 +58,7 @@ docker run -d \
 使用以下命令从docker中获取随机生成的强密码
 
 ```shell
-docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -E 'password'
+docker logs $(docker ps | grep javachains/javachains | awk '{print $1}') | grep -E 'password'
 ```
 
 输出示例
@@ -73,7 +73,7 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 
 ⚠️仅支持 JDK8，推荐使用 Temurin8/Zulu8 JDK
 
-使用 `java -jar web-chains.jar` 即可启动，每次启动后会打印出随机生成的密码
+使用 `java -jar java-chains.jar` 即可启动，每次启动后会打印出随机生成的密码
 
 默认监听 0.0.0.0 ，登录页面：`http://your-ip:8011` （使用这里的用户名密码登录）
 
@@ -82,13 +82,13 @@ docker logs $(docker ps | grep javachains/webchains | awk '{print $1}') | grep -
 Linux：
 
 ```bash
-export CHAINS_PASS=[your_password] && java -jar web-chains.jar
+export CHAINS_PASS=[your_password] && java -jar java-chains.jar
 ```
 
 Windows：
 
 ```cmd
-set CHAINS_PASS=[your_password] && java -jar web-chains.jar
+set CHAINS_PASS=[your_password] && java -jar java-chains.jar
 ```
 
 ## 模块介绍
