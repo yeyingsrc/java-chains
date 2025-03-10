@@ -4,10 +4,8 @@ RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
 
 WORKDIR /chains
 
-COPY java-chains.jar /chains/java-chains.jar
-COPY chains-config/ /chains/chains-config/
-
-RUN chown appuser:appgroup /chains/java-chains.jar
+COPY --chown=appuser:appgroup java-chains.jar /chains/java-chains.jar
+COPY --chown=appuser:appgroup chains-config/ /chains/chains-config/
 
 USER appuser
 
