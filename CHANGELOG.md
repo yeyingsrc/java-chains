@@ -1,3 +1,25 @@
+## 1.4.1
+
+**Added**
+
+1. Added partial fastjson payload generation capabilities and a Unicode-based WAF bypass technique by
+   @xcxmiku. [Reference article](https://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486066&idx=1&sn=25021413b4ca3be4037ea3819ff12bdc&chksm=cec076c7d99fce55e8eebc531a6c5e6363182ba166120fc676a4c161788ed43a5863efe57fff&mpshare=1&scene=1&srcid=0319gACpuJIZjaROthkFVH3Y&sharer_shareinfo=78b3da8cba5f6492f886dc1da02f001a&sharer_shareinfo_first=78b3da8cba5f6492f886dc1da02f001a#rd)
+2. Display the User-Agent value of incoming HTTPServer requests.
+3. Introduced a file upload parameter type to facilitate the customization of binary bytecode files. Refer to the
+   corresponding Gadget: BytecodeFromUploadFile.
+4. Introduced JmgCustomShellGadget, enabling the injection of custom memory shells.
+5. Added support for specifying the listening address through environment variables.
+
+**Changed**
+
+1. Removed the `comparatorType` option from the CB chain.
+2. Parameter values in log outputs are now displayed with a maximum length of 200 characters.
+3. Fixed a concatenation error (#9).
+4. Improved the frontend display of "Choice" selection parameters.
+5. Fixed an exception related to custom bytecode.
+6. Improved the frontend display of preset chains.
+7. In download/save mode, the output format is automatically switched to Raw.
+
 ## 1.4.0
 
 **Added**

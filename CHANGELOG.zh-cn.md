@@ -1,3 +1,24 @@
+## 1.4.1
+
+**Added**
+
+1. 新增部分 fastjson payload 生成，以及 unicode 绕 waf 方案
+   @xcxmiku  [参考文章](https://mp.weixin.qq.com/s?__biz=Mzg3NzczOTA3OQ==&mid=2247486066&idx=1&sn=25021413b4ca3be4037ea3819ff12bdc&chksm=cec076c7d99fce55e8eebc531a6c5e6363182ba166120fc676a4c161788ed43a5863efe57fff&mpshare=1&scene=1&srcid=0319gACpuJIZjaROthkFVH3Y&sharer_shareinfo=78b3da8cba5f6492f886dc1da02f001a&sharer_shareinfo_first=78b3da8cba5f6492f886dc1da02f001a#rd)
+2. 展示 HTTPServer 请求来源 User-Agent 值
+3. 新增文件上传参数类型，方便自定义二进制字节码文件，参考对应 Gadget: BytecodeFromUploadFile
+4. 新增 JmgCustomShellGadget，可实现注入自定义内存马
+5. 支持通过环境变量指定监听的 address
+
+**Changed**
+
+1. 移除了 CB 链中的 comparatorType 选项
+2. 日志输出参数值最多展示 200 个字符
+3. 修复拼接错误 #9
+4. 优化 Choice 选择参数的前端显示
+5. 修复自定义字节码导致的异常
+6. 优化前端预设链的显示
+7. 在下载/保存模式下，输出格式将自动切换为 Raw 格式
+
 ## 1.4.0
 
 **Added**
